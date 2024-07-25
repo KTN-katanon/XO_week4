@@ -14,6 +14,10 @@ public class Player {
     public Player(char symbol) {
         this.symbol = symbol;
     }
+
+    public char getSymbol() {
+        return symbol;
+    }
     
     
 }

@@ -10,21 +10,13 @@ package com.katanon.xolab4oop;
  */
 public class Board {
 
-    private char[][] board;
-    private char currentPlayer;
+    private char[][] board = {{'-','-','-'},{'-','-','-'},{'-','-','-'}};
+    private Player p1;
+    private Player p2;
 
-    public Board() {
-        board = new char[3][3];
-        currentPlayer = 'X';
-        createBoard();
-    }
-
-    public void createBoard() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = '-';
-            }
-        }
+    public Board(Player p1, Player p2) {
+        this.p1 = p1;
+        this.p2 = p2;
     }
 
     public void printBoard() {

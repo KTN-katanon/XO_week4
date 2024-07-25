@@ -18,6 +18,11 @@ public class Player {
     public char getSymbol() {
         return symbol;
     }
+
+    @Override
+    public String toString() {
+        return "Player{" + "symbol=" + symbol + '}';
+    }
     
     
 }

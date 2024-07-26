@@ -41,6 +41,7 @@ public class Game {
         board = new Board(x, o);
         while (true) {
             board.printBoard();
+            this.showTurn();
             this.inputRowCol();
             if (board.results()) {
                 return;
@@ -48,6 +49,10 @@ public class Game {
             board.switchTurn();
 
         }
+    }
+    
+    public void showTurn(){
+        System.out.println("Turn " + board.getCurrentPlayer().getSymbol());
     }
 
     private void showWelcome() {

@@ -10,11 +10,41 @@ package com.katanon.xolab4oop;
  */
 public class Player {
     private char symbol;
+    private int winCount;
+    private int drawCount;
+    private int loseCount;
 
     public Player(char symbol) {
         this.symbol = symbol;
+        this.winCount = 0;
+        this.drawCount = 0;
+        this.loseCount = 0;
     }
 
+    public int getWinCount() {
+        return winCount;
+    }
+
+    public void setWinCount(int winCount) {
+        this.winCount = winCount;
+    }
+
+    public int getDrawCount() {
+        return drawCount;
+    }
+
+    public void setDrawCount(int drawCount) {
+        this.drawCount = drawCount;
+    }
+
+    public int getLoseCount() {
+        return loseCount;
+    }
+
+    public void setLoseCount(int loseCount) {
+        this.loseCount = loseCount;
+    }
+    
     public char getSymbol() {
         return symbol;
     }

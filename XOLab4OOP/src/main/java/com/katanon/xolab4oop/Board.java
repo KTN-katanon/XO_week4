@@ -70,6 +70,25 @@ public class Board {
         }
     }
 
+    public boolean checkWinner() {
+        // check row
+        if ((board[0][0] == currentPlayer.getSymbol() && board[0][1] == currentPlayer.getSymbol() && board[0][2] == currentPlayer.getSymbol())
+                || (board[1][0] == currentPlayer.getSymbol() && board[1][1] == currentPlayer.getSymbol() && board[1][2] == currentPlayer.getSymbol())
+                || (board[2][0] == currentPlayer.getSymbol() && board[2][1] == currentPlayer.getSymbol() && board[2][2] == currentPlayer.getSymbol())) {
+            return true;
+        } // check col
+        else if ((board[0][0] == currentPlayer.getSymbol() && board[1][0] == currentPlayer.getSymbol() && board[2][0] == currentPlayer.getSymbol())
+                || (board[0][1] == currentPlayer.getSymbol() && board[1][1] == currentPlayer.getSymbol() && board[2][1] == currentPlayer.getSymbol())
+                || (board[0][2] == currentPlayer.getSymbol() && board[1][2] == currentPlayer.getSymbol() && board[2][2] == currentPlayer.getSymbol())) {
+            return true;
+        } // check X
+        else if (board[0][0] == currentPlayer.getSymbol() && board[1][1] == currentPlayer.getSymbol() && board[2][2] == currentPlayer.getSymbol()
+                || board[0][2] == currentPlayer.getSymbol() && board[1][1] == currentPlayer.getSymbol() && board[2][0] == currentPlayer.getSymbol()) {
+            return true;
+        }
+        return false;
+    }
+
     public boolean isBoardFull() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -80,7 +99,20 @@ public class Board {
         }
         return true;
     }
-
+    
+    public boolean results() {
+        if (checkWinner()) {
+            printBoard();
+            System.out.println(currentPlayer);
+            return true;
+        } else if (isBoardFull()) {
+            printBoard();
+            System.out.println("Draw!!!");
+            return true;
+        }
+        return false;
+    }
+    
     @Override
     public String toString() {
         return "Board{" + "board=" + board + ", p1=" + p1 + ", p2=" + p2 + '}';

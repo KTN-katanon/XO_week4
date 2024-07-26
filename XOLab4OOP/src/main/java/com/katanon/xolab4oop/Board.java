@@ -10,13 +10,15 @@ package com.katanon.xolab4oop;
  */
 public class Board {
 
-    private char[][] board = {{'-','-','-'},{'-','-','-'},{'-','-','-'}};
+    private char[][] board = {{'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'}};
     private Player p1;
     private Player p2;
+    private Player currentPlayer;
 
     public Board(Player p1, Player p2) {
         this.p1 = p1;
         this.p2 = p2;
+        currentPlayer = p1;
     }
 
     public char[][] getBoard() {
@@ -43,11 +45,19 @@ public class Board {
         this.p2 = p2;
     }
 
+    public boolean setRowCol(int row, int col) {
+        if (board[row][col] != '-') {
+            return false;
+        }
+        board[row][col] = currentPlayer.getSymbol();
+        return true;
+    }
+
     @Override
     public String toString() {
         return "Board{" + "board=" + board + ", p1=" + p1 + ", p2=" + p2 + '}';
     }
-    
+
     public void printBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {

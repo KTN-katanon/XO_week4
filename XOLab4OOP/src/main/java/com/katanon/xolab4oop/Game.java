@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.katanon.xolab4oop;
+import java.util.*;
 
 /**
  *
@@ -11,7 +12,9 @@ package com.katanon.xolab4oop;
 public class Game {
     private Player o;
     private Player x;
+    private int row,col;
     private Board board;
+    Scanner sc = new Scanner(System.in);
 
     public Game() {
         o = new Player('O');
@@ -23,20 +26,24 @@ public class Game {
     public void play(){
         this.showWelcome();
         board = new Board(o,x);
-        this.showBoard();
+        board.printBoard();
+        inputRowCol();
+        board.printBoard();
     }
     
     private void showWelcome(){
         System.out.println("Welcome to XO Game");
     }
     
-    private void showBoard(){
-        char [][] table = board.getBoard();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(table[i][j] + " ");
+    public void inputRowCol(){
+        while(true){
+            System.out.print("Please input row, col: ");
+            row = sc.nextInt() - 1;
+            col = sc.nextInt() - 1;
+            if(board.setRowCol(row, col)){
+                return;
             }
-            System.out.println();
+            System.out.println("Player is already in that spot!");
         }
     }
 }

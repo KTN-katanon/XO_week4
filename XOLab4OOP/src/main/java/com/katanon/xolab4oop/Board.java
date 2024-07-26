@@ -53,9 +53,12 @@ public class Board {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Board{" + "board=" + board + ", p1=" + p1 + ", p2=" + p2 + '}';
+    public void switchTurn() {
+        if (currentPlayer == p1) {
+            currentPlayer = p2;
+        } else if (currentPlayer == p2) {
+            currentPlayer = p1;
+        }
     }
 
     public void printBoard() {
@@ -78,4 +81,8 @@ public class Board {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Board{" + "board=" + board + ", p1=" + p1 + ", p2=" + p2 + '}';
+    }
 }

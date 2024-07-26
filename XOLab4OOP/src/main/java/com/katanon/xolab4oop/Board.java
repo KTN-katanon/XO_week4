@@ -45,6 +45,10 @@ public class Board {
         this.p2 = p2;
     }
 
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
     public boolean setRowCol(int row, int col) {
         if (board[row][col] != '-') {
             return false;

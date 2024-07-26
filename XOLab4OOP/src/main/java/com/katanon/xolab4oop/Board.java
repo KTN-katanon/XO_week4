@@ -73,7 +73,7 @@ public class Board {
             System.out.println();
         }
     }
-    
+
     public boolean checkWinner() {
         // check row
         if ((board[0][0] == currentPlayer.getSymbol() && board[0][1] == currentPlayer.getSymbol() && board[0][2] == currentPlayer.getSymbol())
@@ -103,7 +103,7 @@ public class Board {
         }
         return true;
     }
-    
+
     public boolean results() {
         if (checkWinner()) {
             printBoard();
@@ -116,7 +116,25 @@ public class Board {
         }
         return false;
     }
-    
+
+    public void updateStat() {
+        if (checkWinner()) {
+            if (currentPlayer == p1) {
+                p1.incWinCount();
+                p2.incLoseCount();
+            } else if (currentPlayer == p1) {
+                p2.incWinCount();
+                p1.incLoseCount();
+            } else {
+                
+            }
+        }
+        if (isBoardFull()) {
+            p2.incDrawCount();
+            p1.incDrawCount();
+        }
+    }
+
     @Override
     public String toString() {
         return "Board{" + "board=" + board + ", p1=" + p1 + ", p2=" + p2 + '}';

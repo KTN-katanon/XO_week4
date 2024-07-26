@@ -11,7 +11,7 @@ package com.katanon.xolab4oop;
 public class XOLab4OOP {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        System.out.println("asdasdasd");
+        Game game = new Game();
+        game.play();
     }
 }

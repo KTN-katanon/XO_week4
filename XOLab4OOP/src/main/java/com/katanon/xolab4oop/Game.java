@@ -26,9 +26,10 @@ public class Game {
     public void play() {
         this.showWelcome();
         board = new Board(o, x);
-        board.printBoard();
-        inputRowCol();
-        board.printBoard();
+        while (true) {
+            board.printBoard();
+            inputRowCol();
+        }
     }
 
     private void showWelcome() {
@@ -47,11 +48,9 @@ public class Game {
                 } else {
                     System.out.println("Player is already in that spot!");
                 }
-            }
-            catch(ArrayIndexOutOfBoundsException e){
+            } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("This position is outside of the board!");
-            }
-            catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid input! Please input integers!");
                 sc.next();
             }

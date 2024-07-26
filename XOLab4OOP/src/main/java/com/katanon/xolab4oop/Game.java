@@ -41,10 +41,11 @@ public class Game {
 
     public boolean askContinue() {
         // play again
-        System.out.println("Do you want to play again? (y/n, other to no): ");
+        System.out.print("Do you want to play again? (y/n, other to no): ");
         String play = sc.next().trim().toLowerCase();
         if (play.equals("yes") || play.equals("y")) {
         } else {
+            System.out.println("Thanks for playing❤️");
             return true;
         }
         return false;

@@ -25,10 +25,15 @@ public class Game {
 
     public void play() {
         this.showWelcome();
-        board = new Board(o, x);
+        board = new Board(x, o);
         while (true) {
             board.printBoard();
-            inputRowCol();
+            this.inputRowCol();
+            if(board.results()){
+                return;
+            }
+            board.switchTurn();
+            
         }
     }
 

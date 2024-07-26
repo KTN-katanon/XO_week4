@@ -73,7 +73,7 @@ public class Board {
             System.out.println();
         }
     }
-
+    
     public boolean checkWinner() {
         // check row
         if ((board[0][0] == currentPlayer.getSymbol() && board[0][1] == currentPlayer.getSymbol() && board[0][2] == currentPlayer.getSymbol())

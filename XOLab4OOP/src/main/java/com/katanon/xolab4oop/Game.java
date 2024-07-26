@@ -27,14 +27,27 @@ public class Game {
         this.showWelcome();
         while (true) {
             this.newGame();
-            // play again
-            System.out.println("Do you want to play again? (y/n, other to no): ");
-            String play = sc.next().trim().toLowerCase();
-            if (play.equals("yes") || play.equals("y")) {
-            } else {
+            showStat();
+            if (askContinue()) {
                 break;
             }
         }
+    }
+
+    public void showStat() {
+        System.out.println(x);
+        System.out.println(o);
+    }
+
+    public boolean askContinue() {
+        // play again
+        System.out.println("Do you want to play again? (y/n, other to no): ");
+        String play = sc.next().trim().toLowerCase();
+        if (play.equals("yes") || play.equals("y")) {
+        } else {
+            return true;
+        }
+        return false;
     }
 
     public void newGame() {
@@ -44,14 +57,15 @@ public class Game {
             this.showTurn();
             this.inputRowCol();
             if (board.results()) {
+                board.updateStat();
                 return;
             }
             board.switchTurn();
 
         }
     }
-    
-    public void showTurn(){
+
+    public void showTurn() {
         System.out.println("Turn " + board.getCurrentPlayer().getSymbol());
     }
 

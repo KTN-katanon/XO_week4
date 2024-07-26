@@ -25,15 +25,28 @@ public class Game {
 
     public void play() {
         this.showWelcome();
+        while (true) {
+            this.newGame();
+            // play again
+            System.out.println("Do you want to play again? (y/n, other to no): ");
+            String play = sc.next().trim().toLowerCase();
+            if (play.equals("yes") || play.equals("y")) {
+            } else {
+                break;
+            }
+        }
+    }
+
+    public void newGame() {
         board = new Board(x, o);
         while (true) {
             board.printBoard();
             this.inputRowCol();
-            if(board.results()){
+            if (board.results()) {
                 return;
             }
             board.switchTurn();
-            
+
         }
     }
 

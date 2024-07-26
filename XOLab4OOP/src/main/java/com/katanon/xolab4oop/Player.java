@@ -25,24 +25,24 @@ public class Player {
         return winCount;
     }
 
-    public void setWinCount(int winCount) {
-        this.winCount = winCount;
+    public void incWinCount() {
+        this.winCount++;
     }
 
     public int getDrawCount() {
         return drawCount;
     }
 
-    public void setDrawCount(int drawCount) {
-        this.drawCount = drawCount;
+    public void incDrawCount() {
+        this.drawCount++;
     }
 
     public int getLoseCount() {
         return loseCount;
     }
 
-    public void setLoseCount(int loseCount) {
-        this.loseCount = loseCount;
+    public void incLoseCount() {
+        this.loseCount++;
     }
     
     public char getSymbol() {
@@ -51,8 +51,10 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player " + symbol + " win!!!";
+        return "Player{" + "symbol=" + symbol + ", winCount=" + winCount + ", drawCount=" + drawCount + ", loseCount=" + loseCount + '}';
     }
+
+    
     
     
 }

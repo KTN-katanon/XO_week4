@@ -21,7 +21,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" + "symbol=" + symbol + '}';
+        return "Player " + symbol + " win!!!";
     }
     
     
